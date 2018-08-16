@@ -4780,6 +4780,11 @@ static int my_fuse_opt_proc(void* data, const char* arg, int key, struct fuse_ar
       instance_name = "[" + instance_name + "]";
       return 0;
     }
+    if(0 == STR2NCMP(arg, "access_token=")){
+      access_token = strchr(arg, '=') + sizeof(char);
+      S3fsCurl::AWSAccessToken(access_token);
+      return 0;
+    }
     //
     // debug option for s3fs
     //
