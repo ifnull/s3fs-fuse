@@ -1544,7 +1544,7 @@ bool S3fsCurl::SetIAMCredentials(const char* response)
 
 bool S3fsCurl::SetAccessToken(const char* access_token)
 {
-  S3fsCurl::AWSAccessToken       = access_token
+  S3fsCurl::AWSAccessToken       = access_token;
   return true;
 }
 
