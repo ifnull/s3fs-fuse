@@ -115,7 +115,6 @@ static mode_t mp_umask            = 0;    // umask for mount point
 static bool is_mp_umask           = false;// default does not set.
 static std::string mountpoint;
 static std::string passwd_file    = "";
-static std::string access_token    = "";
 static bool utility_mode          = false;
 static bool noxmlns               = false;
 static bool nocopyapi             = false;
