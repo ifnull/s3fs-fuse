@@ -4782,7 +4782,7 @@ static int my_fuse_opt_proc(void* data, const char* arg, int key, struct fuse_ar
     }
     if(0 == STR2NCMP(arg, "access_token=")){
       access_token = strchr(arg, '=') + sizeof(char);
-      S3fsCurl::AWSAccessToken(access_token);
+      S3fsCurl::SetIAMTokenField(access_token);
       return 0;
     }
     //
