@@ -4525,6 +4525,12 @@ static int my_fuse_opt_proc(void* data, const char* arg, int key, struct fuse_ar
       is_ibm_iam_auth = true;
       return 0;
     }
+    if(0 == STR2NCMP(arg, "access_token=")){
+      access_token = strchr(arg, '=') + sizeof(char);
+      S3fsCurl::SetIAMTokenField(access_token);
+      return 0;
+    }
+    
     if(0 == STR2NCMP(arg, "ibm_iam_endpoint=")){
       std::string endpoint_url = "";
       std::string iam_endpoint = strchr(arg, '=') + sizeof(char);
@@ -4779,11 +4785,6 @@ static int my_fuse_opt_proc(void* data, const char* arg, int key, struct fuse_ar
     if(0 == STR2NCMP(arg, "instance_name=")){
       instance_name = strchr(arg, '=') + sizeof(char);
       instance_name = "[" + instance_name + "]";
-      return 0;
-    }
-    if(0 == STR2NCMP(arg, "access_token=")){
-      access_token = strchr(arg, '=') + sizeof(char);
-      S3fsCurl::SetIAMTokenField(access_token);
       return 0;
     }
     //
