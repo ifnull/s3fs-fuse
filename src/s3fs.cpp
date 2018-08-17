@@ -101,7 +101,6 @@ std::string bucket                = "";
 std::string endpoint              = "us-east-1";
 std::string cipher_suites         = "";
 std::string instance_name         = "";
-std::string access_token          = "";
 s3fs_log_level debug_level        = S3FS_LOG_CRIT;
 const char*    s3fs_log_nest[S3FS_LOG_NEST_MAX] = {"", "  ", "    ", "      "};
 
@@ -4526,8 +4525,7 @@ static int my_fuse_opt_proc(void* data, const char* arg, int key, struct fuse_ar
       return 0;
     }
     if(0 == STR2NCMP(arg, "access_token=")){
-      access_token = strchr(arg, '=') + sizeof(char);
-      S3fsCurl::SetAccessToken(access_token);
+      S3fsCurl::SetAccessToken(strchr(arg, '=') + sizeof(char));
       return 0;
     }
 
