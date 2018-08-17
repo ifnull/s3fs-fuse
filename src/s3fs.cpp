@@ -115,6 +115,7 @@ static mode_t mp_umask            = 0;    // umask for mount point
 static bool is_mp_umask           = false;// default does not set.
 static std::string mountpoint;
 static std::string passwd_file    = "";
+static std::string access_token    = "";
 static bool utility_mode          = false;
 static bool noxmlns               = false;
 static bool nocopyapi             = false;
@@ -4527,9 +4528,7 @@ static int my_fuse_opt_proc(void* data, const char* arg, int key, struct fuse_ar
     }
     if(0 == STR2NCMP(arg, "access_token=")){
       access_token = strchr(arg, '=') + sizeof(char);
-      // S3fsCurl::SetAccessToken(access_token);
-      // S3fsCurl::SetIAMTokenField("access_token");
-      S3fsCurl::SetAccessToken("test");
+      S3fsCurl::SetAccessToken(access_token);
       return 0;
     }
 
