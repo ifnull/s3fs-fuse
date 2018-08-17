@@ -377,6 +377,7 @@ class S3fsCurl
     static bool SetVerbose(bool flag);
     static bool GetVerbose(void) { return S3fsCurl::is_verbose; }
     static bool SetAccessKey(const char* AccessKeyId, const char* SecretAccessKey);
+    static bool SetAccessToken(const char* AccessToken);
     static bool IsSetAccessKeyID(void){
                   return (0 < S3fsCurl::AWSAccessKeyId.size());
                 }

@@ -1542,6 +1542,12 @@ bool S3fsCurl::SetIAMCredentials(const char* response)
   return true;
 }
 
+bool S3fsCurl::SetAccessToken(const char* access_token)
+{
+  S3fsCurl::AWSAccessToken       = access_token
+  return true;
+}
+
 bool S3fsCurl::CheckIAMCredentialUpdate(void)
 {
   if(0 == S3fsCurl::IAM_role.size() && !S3fsCurl::is_ecs && !S3fsCurl::is_ibm_iam_auth){
